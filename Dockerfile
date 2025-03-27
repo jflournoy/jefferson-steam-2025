@@ -3,7 +3,7 @@ FROM rocker/shiny-verse:latest
 
 # Install additional R packages 
 # (Add or remove packages as you need)
-RUN R -e "install.packages(c('dplyr', 'ggplot2', 'ggrepel', 'rhandsontable', 'shinyjqui'), repos='https://cloud.r-project.org')"
+RUN R -e "install.packages(c('ggrepel', 'rhandsontable', 'shinyjqui'), repos='https://cloud.r-project.org')"
 
 # Copy your Shiny app code into the image 
 # (Assuming your app is in /YOUR-REPO/ )
