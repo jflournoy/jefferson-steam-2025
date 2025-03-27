@@ -59,7 +59,7 @@ ui <- fluidPage(
         ),
         column(2, style = "text-align: right; padding-top: 10px;",
                tags$a(
-                 href = "https://github.com/YOUR-USERNAME/YOUR-REPO",
+                 href = "https://github.com/jflournoy/jefferson-steam-2025.git",
                  target = "_blank",
                  icon("github"), " View on GitHub"
                )
@@ -167,7 +167,8 @@ server <- function(input, output, session) {
       59.1, 55.1,
       43.3, 41.3
     ),
-    Group = rep("Hominids", 28),
+    Group = c(rep("Hominids", 10),
+              rep("Hominids (extinct)", 18)),
     stringsAsFactors = FALSE
   )
   values <- reactiveValues(data = defaultData)
@@ -197,7 +198,7 @@ server <- function(input, output, session) {
       ) %>%
       hot_col("Group",
               type = 'dropdown',
-              source = c("Kids", "Adults", "Hominids"))
+              source = c("Kids", "Adults"))
   })
   
   observeEvent(input$hot, {
@@ -222,7 +223,8 @@ server <- function(input, output, session) {
                  size = 4) +
       scale_fill_manual(values = c("Kids" = scales::alpha("#f7ed4a", .7),
                                    "Adults" = scales::alpha("#f7a541", .7),
-                                   "Hominids" = scales::alpha("#f78154", .7)))+
+                                   "Hominids" = scales::alpha("#f78154", .7),
+                                   "Hominids (extinct)" = scales::alpha("#f07133")))+
       theme_minimal(base_size = sizes$plot) +
       theme(
         panel.grid.minor = element_blank(),
