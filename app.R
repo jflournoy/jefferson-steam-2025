@@ -119,10 +119,55 @@ server <- function(input, output, session) {
   observeEvent(input$decSummaryFont, { sizes$summary <- sizes$summary - 1 })
   
   defaultData <- data.frame(
-    Label = rep("", 10),
-    Height = rnorm(10),
-    Wingspan = rnorm(10),
-    Group = sample(c("Kids", "Adults", "Hominids"), 10, replace = TRUE),
+    Label = c(
+      "Human (Male)", "Human (Female)",
+      "Chimpanzee (Male)", "Chimpanzee (Female)",
+      "Gorilla (Male)", "Gorilla (Female)",
+      "Orangutan (Male)", "Orangutan (Female)",
+      "Bonobo (Male)", "Bonobo (Female)",
+      "Australopithecus afarensis (Male)", "Australopithecus afarensis (Female)",
+      "Australopithecus africanus (Male)", "Australopithecus africanus (Female)",
+      "Paranthropus boisei (Male)", "Paranthropus boisei (Female)",
+      "Homo habilis (Male)", "Homo habilis (Female)",
+      "Homo erectus (Male)", "Homo erectus (Female)",
+      "Homo heidelbergensis (Male)", "Homo heidelbergensis (Female)",
+      "Homo neanderthalensis (Male)", "Homo neanderthalensis (Female)",
+      "Homo naledi (Male)", "Homo naledi (Female)",
+      "Homo floresiensis (Male)", "Homo floresiensis (Female)"
+    ),
+    Height = c(
+      68.9, 63.0,
+      47.2, 43.3,
+      66.9, 55.1,
+      53.9, 45.3,
+      46.9, 43.7,
+      59.4, 41.3,
+      54.3, 45.3,
+      53.9, 48.8,
+      61.8, 46.5,
+      70.9, 63.0,
+      68.9, 61.8,
+      65.0, 60.2,
+      59.1, 55.1,
+      43.3, 41.3
+    ),
+    Wingspan = c(
+      68.9, 63.0,
+      70.9, 65.0,
+      94.5, 82.7,
+      78.7, 70.9,
+      59.1, 55.1,
+      59.1, 43.3,
+      55.1, 47.2,
+      55.1, 51.2,
+      63.0, 47.2,
+      70.9, 63.0,
+      68.9, 61.8,
+      63.0, 59.1,
+      59.1, 55.1,
+      43.3, 41.3
+    ),
+    Group = rep("Hominids", 28),
     stringsAsFactors = FALSE
   )
   values <- reactiveValues(data = defaultData)
